@@ -1,5 +1,5 @@
-resource "github_actions_repository_permissions" "actions_repository_permissionses" {
-  for_each = var.actions_repository_permissionses
+resource "github_actions_repository_permissions" "actions_repository_permissions" {
+  for_each = var.actions_repository_permissions
 
   repository           = each.value.repository
   allowed_actions      = each.value.allowed_actions
