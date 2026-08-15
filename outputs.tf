@@ -8,7 +8,7 @@ output "actions_repository_permissions_allowed_actions" {
 }
 output "actions_repository_permissions_allowed_actions_config" {
   description = "Map of allowed_actions_config values across all actions_repository_permissions, keyed the same as var.actions_repository_permissions"
-  value       = { for k, v in github_actions_repository_permissions.actions_repository_permissions : k => v.allowed_actions_config if v.allowed_actions_config != null && length(v.allowed_actions_config) > 0 }
+  value       = { for k, v in github_actions_repository_permissions.actions_repository_permissions : k => one(v.allowed_actions_config) if v.allowed_actions_config != null && length(v.allowed_actions_config) > 0 }
 }
 output "actions_repository_permissions_enabled" {
   description = "Map of enabled values across all actions_repository_permissions, keyed the same as var.actions_repository_permissions"
